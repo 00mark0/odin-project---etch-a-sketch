@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 1200px;
+  height: auto;
+  padding: 30px;
+  background-color: blue;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.container div {
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+}
+
+.container div:hover {
+  background-color: red;
+}
