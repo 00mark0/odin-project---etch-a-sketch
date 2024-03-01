@@ -20,15 +20,31 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isNaN(number)) {
       return userPrompt();
     } else {
-      const numberOfDivs = number * number;
       const divSize = 100 / number;
+      const fontSize = Math.max(8, 20 - number / 5); // Adjust font size dynamically
 
-      for (i = 0; i < numberOfDivs; i++) {
-        let newDiv = document.createElement('div');
-        newDiv.style.width = `${divSize}%`;
-        newDiv.style.height = `${divSize}%`;
-        newDiv.classList.add('grid-item');
-        containerDiv.appendChild(newDiv);
+      for (let i = 0; i < number; i++) {
+        for (let j = 0; j < number; j++) {
+          let newDiv = document.createElement('div');
+          newDiv.style.width = `${divSize}%`;
+          newDiv.style.height = `${divSize}%`;
+          newDiv.style.fontSize = `${fontSize}px`; // Set font size
+          newDiv.classList.add('grid-item');
+
+          // Add row numbers to the left-most divs
+          if (j === 0) {
+            newDiv.textContent = `${i + 1}`;
+            newDiv.style.color = 'black';
+          }
+
+          // Add column numbers to the top divs
+          if (i === 0) {
+            newDiv.textContent = `${j + 1}`;
+            newDiv.style.color = 'black';
+          }
+
+          containerDiv.appendChild(newDiv);
+        }
       }
       addHoverEffect();
     }
